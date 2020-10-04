@@ -1,0 +1,90 @@
+
+.container {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  height: auto;
+  padding: 2%;
+  margin-top: 5%;
+  display: flex;
+  z-index: 1;
+} 
+  
+  .table {
+    z-index: 2;
+    width: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .tableRowHeading {
+      display: flex;
+      position: relative;
+  }
+  .tableRowHeading div {
+      margin: 10px;
+      font-size: 18px;
+      font-weight: 700;
+  }
+  .tableRow {
+      display: flex;
+      position: relative;
+  }
+  .tableRow div {
+      margin: 10px;
+      font-size: 16px;
+      font-weight: 600;
+  }
+  .tableRowAmount{
+  position: absolute;
+  right: 10%;
+  }
+  .pieChartDiv {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 50%;
+    margin: auto;
+  }
+@media only screen and (max-width: 800px) {
+.container {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  height: auto;
+  padding: 2%;
+  margin-top: 5%;
+  display: block;
+  z-index: 1;
+} 
+  .table {
+    z-index: 2;
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .tableRowHeading {
+      display: flex;
+      position: relative;
+  }
+  .tableRowHeading div {
+      margin: 10px;
+      font-size: 18px;
+      font-weight: 700;
+  }
+  .tableRow {
+      display: flex;
+      position: relative;
+  }
+  .tableRow div {
+      margin: 10px;
+      font-size: 16px;
+      font-weight: 600;
+  }
+  .tableRowAmount{
+  position: absolute;
+  right: 10%;
+  }
+  .pieChartDiv {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+    margin: auto;
+  }
+  }

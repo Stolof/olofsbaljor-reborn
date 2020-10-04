@@ -1,0 +1,71 @@
+
+.container {
+    width: 95%;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: 0%;
+    margin-top: 5%;
+}
+.container h1{
+    margin: 2%;
+}
+.introduction {
+    display: flex;
+} 
+
+.introduction div{
+    margin-top: 5%;
+    width: 60%;
+} 
+.recipeImg {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    width: 40%;
+    height: auto;
+    padding: 2%;
+    margin: 2%;
+    margin-top: 5%;
+    margin-right: 0;
+}
+
+.ingredientsContainer {
+    width: 95%;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: 0%;
+    margin-top: 5%;
+}
+
+.ingredientsContainer h3{
+    padding-top: 3%;
+}
+.ingredientsContainer ul{
+    padding-bottom: 1%;
+}
+
+.howToContainer {
+    width: 95%;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: 0%;
+    margin-top: 5%;
+}
+.howToContainer  h3{
+    padding-top: 3%;
+}
+.howToContainer ul{
+    padding-bottom: 1%;
+}
+@media only screen and (max-width: 860px) {
+    .container  {
+    width: 98%;
+    margin: 2%;
+    }
+  }
+@media only screen and (max-width: 400px) {
+    .container  {
+    width: 100%;
+    }
+  }
