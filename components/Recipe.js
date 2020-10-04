@@ -54,6 +54,7 @@ export default function Recipe(props){
                 <img className={recipeStyle.recipeImg } src="not-found.png"></img>
                 }
             </div>
+            <div className={recipeStyle.instructionContainer}>
       <div className={recipeStyle.ingredientsContainer}>
                 <h3>Ingredients</h3>
                 {ingredientsDisplay}
@@ -64,6 +65,8 @@ export default function Recipe(props){
                     {instructionsDisplay}
                 </p>
                 </div>
+
+            </div>
       <div className={nutrientStyle.container}>
                 <NutrientTable recipeTitle={title} nutrients={getEnergyNutrients(props.recipe.nutrients)} />
                 <EnergyPieChart title={title + "id"} energyNutrients={getEnergyNutrients(props.recipe.nutrients)}/>

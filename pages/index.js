@@ -1,65 +1,65 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import indexStyle from '../styles/Index.module.css'
+import Recipe from '../components/Recipe.js'
+import { getAllRecipes, getNutrientForAllRecipes } from '../lib/api'
 
-export default function Home() {
+export default function Home(props) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Olofsbaljor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <div>
+        <h1> Välkommen till Olofs baljor</h1>
+        <p> Detta är en sida innehållande mina favoritbaljväxtrecept</p>
+      </div>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+      <div className={indexStyle.container}>
+        <h2>Baljor</h2>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <ul className={indexStyle.list}>
+        { props.recipes.length > 0 ? props.recipes.map(
+          r => (
+              <li className={indexStyle.listItem} href={"#" + r.fields.title}>
+                <a href={"#" + r.fields.title}>
+                  <p>{r.fields.title}</p>
+                  { r.fields.resultImage ? 
+                  <img className={indexStyle.image} src={ 'https:' + r.fields.resultImage.fields.file.url}></img>
+                  :
+                  <img className={indexStyle.image} src="not-found.png"></img>
+                }
+                </a>
+              </li>
+          )
+        ): null }
+        </ul>
+      </div>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+      { props.recipes.length > 0 ? props.recipes.map(
+        r => (
+          <Recipe recipe={r.fields}></Recipe>
+        )
+      ): null
+      }
+      </div>
+)}
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+export async function getStaticProps() {
+  let recipes = await getAllRecipes()
+  recipes = recipes.items
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+  const nutrientsPerRecipe = await getNutrientForAllRecipes(recipes)
+  for (const recipe of recipes) {
+    recipe.fields["nutrients"] = nutrientsPerRecipe[recipe.fields.title]
+    recipe.fields["showNutrients"] = false
+  }
+  console.log('Recipes', recipes )
+  // const result = await Promise.all(Object.values(nutrientsPerRecipe))
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+  return {
+    props: {recipes}
+  }
 }

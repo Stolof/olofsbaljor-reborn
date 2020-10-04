@@ -12,18 +12,17 @@
 
 .list {
     position: relative;
-    display: flex;
     list-style-type: none;
     padding: 0px;
 }
 
 .listItem {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    width: 23%;
+    width: 18%;
     height: auto;
     min-height: 260px;
-    margin: auto;
-    display: flex;
+    margin: 1%;
+    display: inline-block;
 }
 
 .listItem:hover {
@@ -44,8 +43,6 @@
 .image {
     width: 100%;
     height: auto;
-    min-height: 220px;
-    min-width: 200px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     margin: auto;
     padding: 5%;
@@ -58,11 +55,7 @@
     margin: 2%;
     }
 .listItem {
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    width: 32%;
-    height: auto;
-    margin: auto;
-    display: flex;
+    width: 23%;
 }
 .listItem a {
     margin: 0px;
@@ -71,27 +64,19 @@
 .list {
     position: relative;
 }
-.image {
-    width: 100%;
-    height: auto;
-    min-height: 0px;
-    min-width: 0px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin: auto;
+  }
+@media only screen and (max-width: 680px) {
+.listItem {
+    width: 31%;
 }
   }
-@media only screen and (max-width: 400px) {
+
+@media only screen and (max-width: 440px) {
     .container  {
-        width: 100%;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin: 2%;
+    width: 100%;
     }
 .listItem {
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     width: 48%;
-    height: auto;
-    margin: auto;
-    display: flex;
 }
 .listItem a {
     margin: 0px;

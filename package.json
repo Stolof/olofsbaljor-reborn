@@ -8,6 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "contentful": "^7.14.6",
+    "google-charts": "^2.0.0",
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1"
