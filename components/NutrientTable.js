@@ -6,7 +6,7 @@ import NutrientTableEntry from './NutrientTableEntry'
      return (
          <div className={nutrientStyle.table}>
              <div>{props.recipeTitle ?
-                 <h3>Näringsinnehåll: {props.recipeTitle} </h3>
+                 <h3>Näringsinnehåll per portion - {props.recipeTitle} </h3>
 : <h3> </h3>}
              </div>
              <div>

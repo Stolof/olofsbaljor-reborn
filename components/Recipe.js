@@ -11,6 +11,8 @@ export default function Recipe(props){
     const [showNutrients, setShowNutrients] = useState(props.recipe.showNutrients ? true : false)
 
     const title = props.recipe.title
+    const portions = props.recipe.portions
+    const time = props.recipe.time
     const description = documentToReactComponents(props.recipe.descriptionRt) 
     const ingredientsDisplay = documentToReactComponents(props.recipe.ingredientsRt)
     const instructionsDisplay = documentToReactComponents(props.recipe.instructionsRt)
@@ -46,13 +48,17 @@ export default function Recipe(props){
             <div className={recipeStyle.introduction}>
                 <div>
                     <h1>{title}</h1>
+                    <h2>Portioner: {portions ? portions : 8}, Tid: {time ? time : "30"} minuter</h2>
                     <p>{description}</p>
                 </div>
+                <div className={recipeStyle.recipeContainer }>
                   { props.recipe.resultImage ? 
                   <img className={recipeStyle.recipeImg } src={ 'https:' + props.recipe.resultImage.fields.file.url}></img>
                   :
                 <img className={recipeStyle.recipeImg } src="not-found.png"></img>
                 }
+
+                </div>
             </div>
             <div className={recipeStyle.instructionContainer}>
       <div className={recipeStyle.ingredientsContainer}>
